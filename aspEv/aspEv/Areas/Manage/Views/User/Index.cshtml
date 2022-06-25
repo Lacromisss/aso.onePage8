@@ -1,0 +1,43 @@
+﻿@model List<User>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<table class="table">
+    @foreach (var item in Model)
+    {
+
+
+        <thead>
+
+
+
+            <tr>
+                <th scope="col">Photo</th>
+                <th scope="col">Name</th>
+                <th scope="col">Raiting</th>
+                <th scope="col">SocialName</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>
+                    <img src="~/assest/images/@item.ImgUrl" width="150px" alt="">
+                </td>
+                <td>@item.Degre</td>
+                <td>@item.Name</td>
+                <td>@item.Raiting</td>
+                <td>@item.SocialName</td>
+                <td><a asp-action="Update" asp-area="Manage" asp-controller="User" asp-route-Id="@item.Id">Update</a></td>
+                <td><a asp-action="Delete" asp-area="Manage" asp-controller="User" asp-route-Id="@item.Id" >Delete</a></td>
+            </tr>
+
+        </tbody>
+    }
+</table>
+
